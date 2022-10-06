@@ -1,0 +1,28 @@
+int fac(int x)=
+  if x==0 then 1 else x * fac(x+(-1))
+int exp(int base, int exponent)=
+  if exponent==0 then 1 else base * exp(base,exponent+(-1))
+int expsum(int n)=
+  if n==0 then 1 else expsum(n+(-1))+exp(2,n)
+
+//exp(5,3) + fac(5)
+
+/* Some tests: these programs will fail and a type checker should see
+that coming... */
+
+// 5+(3==5)           // adding an int to a bool
+// if 5 then 3 else 2 // condition is not a bool
+// if (5==10) then 5 else 5==5 // wrong types in if-then-else
+// exp(3)*3           // wrong number of arguments
+exp(3,3==5)        // wrong type of arguments
+// if exp(3,5) then 7 else 0 // wrong return type
+
+/*
+//function declaration that should not work:
+int exp(int base)=
+  if exponent==0 then 1 else base * exp(base,exponent+(-1))
+// has undefined variable exponent
+
+exp(5,3) + fac(5)
+*/
+
